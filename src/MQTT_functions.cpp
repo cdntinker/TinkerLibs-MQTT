@@ -12,7 +12,8 @@
 int WiFi_strength();
 
 #if defined(SiniLink)
-#include "Tinker_SiniLink.h"
+// #include "Tinker_SiniLink.h"
+void SiniLink_MQTT(char* Topic, char* Message);
 extern bool SiniLink_PWR_STATE;
 #endif
 
