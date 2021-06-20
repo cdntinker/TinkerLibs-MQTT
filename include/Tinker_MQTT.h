@@ -21,7 +21,7 @@ extern const char* MQTTpassword;
 
 const char MQTT_ClientName[] = STR(DeviceName);
 
-extern char *ssid;
+extern const char* ssid;
 
 #endif  // MQTT_H
 
