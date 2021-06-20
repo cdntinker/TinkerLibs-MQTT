@@ -15,9 +15,9 @@ char MQTT_msg_out[MQTT_BUFFER_SIZE *10];
 unsigned long beacon_timer = 0;
 #define BEACON_INTERVAL 30000 // Timer interval for the "keep-alive" status beacon
 
-extern const char *MQTTbroker;
-extern const char *MQTTuser;
-extern const char *MQTTpassword;
+extern const char* MQTTbroker;
+extern const char* MQTTuser;
+extern const char* MQTTpassword;
 
 const char MQTT_ClientName[] = STR(DeviceName);
 
