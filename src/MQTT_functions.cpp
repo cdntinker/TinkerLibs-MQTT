@@ -25,7 +25,7 @@ extern bool SiniLink_PWR_STATE;
 #define ST(A) #A
 #define STR(A) ST(A)
 
-#include "Tinker_MQTT.h"
+#include "MQTT.h"
 
 WiFiClient espClient;
 PubSubClient MQTT_client(espClient);
