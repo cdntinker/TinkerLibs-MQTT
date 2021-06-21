@@ -78,11 +78,9 @@ void MQTT_callback(char *topic, byte payload[100], int length)
     strcpy(CNasT, "/");
     strcat(CNasT, MQTT_ClientName); // "ClientName as Topic"
 
-#ifdef DEBUG
     DEBUG_SectionTitle("Message arrived");
     sprintf(debugTEXT, "Topic: %30s", MQTT_command);
     DEBUG_LineOut(debugTEXT);
-#endif
 
     // if (length < MQTT_BUFFER_SIZE)
     // if (length < 63)
@@ -100,12 +98,10 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             MQTT_msg_in[i + 1] = '\0';
         }
 
-#ifdef DEBUG
         sprintf(debugTEXT, "Message: %28s", MQTT_msg_in);
         DEBUG_LineOut(debugTEXT);
         sprintf(debugTEXT, "Message Size: %d", length);
         DEBUG_LineOut(debugTEXT);
-#endif
 
         /////////////////////////////////////////////////////
         // Message handling goes here...
@@ -142,9 +138,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
     }
     else
     {
-#ifdef DEBUG4
         DEBUG_Trouble("But, it's TOO Bloody Big!");
-#endif
     }
 }
 
@@ -156,10 +150,8 @@ void MQTT_reconnect()
     while (!MQTT_client.connected())
     {
 
-#ifdef DEBUG4
         sprintf(debugTEXT, "WiFi:%d dBm", WiFi_strength());
         DEBUG_LineOut(debugTEXT);
-#endif // DEBUG4
 
         DEBUG_SectionTitle("Attempting MQTT connection...");
 
@@ -171,10 +163,8 @@ void MQTT_reconnect()
         if (MQTT_client.connect(clientId.c_str()))
         {
 
-#ifdef DEBUG4
             sprintf(debugTEXT, "WiFi:%d dBm", WiFi_strength());
             DEBUG_LineOut(debugTEXT);
-#endif // DEBUG4
 
             // SSD1306_Static(" MQTT good ", 3);
             // delay(500);
@@ -234,17 +224,13 @@ void MQTT_beacon()
     strcpy(MQTT_statTopic_Device, MQTT_statTopic);
     strcat(MQTT_statTopic_Device, "/WiFi_strength");
     sprintf(WiFiSignal, "%d dBm", WiFi_strength());
-#ifdef DEBUG0
     DEBUG_SectionTitle("WiFi:");
     DEBUG_LineOut(WiFiSignal);
-#endif
 
     MQTT_client.publish(MQTT_statTopic_Device, WiFiSignal);
     // blinkLED(5);
 
-#ifdef DEBUG4
     DEBUG_LineOut("Beacon sent");
-#endif
 }
 
 void MQTT_Status(char const *Device, char const *Status) // Send status messages
@@ -254,12 +240,10 @@ void MQTT_Status(char const *Device, char const *Status) // Send status messages
     strcat(MQTT_statTopic_Device, "/");
     strcat(MQTT_statTopic_Device, Device);
 
-#ifdef DEBUG4
     char debugTEXT[46];
 
     sprintf(debugTEXT, "}- %16s = %-16s -{", Device, Status);
     DEBUG_Trouble(debugTEXT);
-#endif
     MQTT_client.publish(MQTT_statTopic_Device, Status);
 }
 
