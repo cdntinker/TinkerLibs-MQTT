@@ -41,19 +41,19 @@ void MQTT_SendNOTI(const char *Topic, const char *Message);
 
 void MQTT_HandleMessages();
 
-// Debug ///////////////////////////////////////////////////////////////////////
-void debug_TitleScreen();                   // Title block for the project
-void debug_ReadyScreen();                   // Indicate setup is finished
-void debug_Separator();                     // Make a line
-void debug_SectionTitle(const char *Title); // Text at the left
-void debug_LineOut(const char *Line);       // Text 3 characters inset
-void debug_Action(const char *Line);        // Text centred
-void debug_Trouble(const char *Line);       //
-void debug_Success(const char *Line);       //
-void debug_ProgressBar0();
-void debug_ProgressBar1();
-void debug_ProgressBar2(int dotcount);
-void debug_ESP_info();
+// // Debug ///////////////////////////////////////////////////////////////////////
+// void debug_TitleScreen();                   // Title block for the project
+// void debug_ReadyScreen();                   // Indicate setup is finished
+// void debug_Separator();                     // Make a line
+// void debug_SectionTitle(const char *Title); // Text at the left
+// void debug_LineOut(const char *Line);       // Text 3 characters inset
+// void debug_Action(const char *Line);        // Text centred
+// void debug_Trouble(const char *Line);       //
+// void debug_Success(const char *Line);       //
+// void debug_ProgressBar0();
+// void debug_ProgressBar1();
+// void debug_ProgressBar2(int dotcount);
+// void debug_ESP_info();
 
 // WiFi ///////////////////////////////////////////////////////////////////////
 // int WiFi_strength();
