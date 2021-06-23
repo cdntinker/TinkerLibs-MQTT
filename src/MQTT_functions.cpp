@@ -17,10 +17,6 @@ void SiniLink_MQTT(char* Topic, char* Message);
 extern bool SiniLink_PWR_STATE;
 #endif
 
-// #include "externs.h"
-// extern const char* ssid;
-// extern const char* MQTTbroker;
-
 // #include "MACROS.h"
 #define ST(A) #A
 #define STR(A) ST(A)
