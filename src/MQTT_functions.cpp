@@ -8,7 +8,7 @@
 #include <PubSubClient.h>
 
 // #include "functions.h"
-#include "Tinker_DEBUG.h"
+#include <Tinker_DEBUG.h>
 int WiFi_strength();
 
 #if defined(SiniLink)
