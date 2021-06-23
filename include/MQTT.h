@@ -25,3 +25,4 @@ extern const char* ssid;
 
 #endif  // MQTT_H
 
+#include "Tinker_MQTT.h"
