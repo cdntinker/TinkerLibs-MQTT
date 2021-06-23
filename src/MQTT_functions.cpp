@@ -69,7 +69,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
     char debugTEXT[46];
 
     // char MQTT_msg_in[MQTT_BUFFER_SIZE];
-    char MQTT_msg_in[28];
+    char MQTT_msg_in[28];                   // Limiting size for DEBUG functions...
     
     char *MQTT_command = strrchr(topic, '/');
     char CNasT[MQTT_BUFFER_SIZE];
