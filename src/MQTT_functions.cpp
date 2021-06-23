@@ -72,7 +72,9 @@ void MQTT_callback(char *topic, byte payload[100], int length)
 {
     char debugTEXT[46];
 
-    char MQTT_msg_in[MQTT_BUFFER_SIZE];
+    // char MQTT_msg_in[MQTT_BUFFER_SIZE];
+    char MQTT_msg_in[28];
+    
     char *MQTT_command = strrchr(topic, '/');
     char CNasT[MQTT_BUFFER_SIZE];
     strcpy(CNasT, "/");
