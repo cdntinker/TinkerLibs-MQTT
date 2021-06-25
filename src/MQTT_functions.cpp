@@ -96,8 +96,6 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             MQTT_msg_in[i + 1] = '\0';
         }
 
-Serial.printf("sizeof(MQTT_msg_in) = %d\n", sizeof(MQTT_msg_in));
-Serial.printf("strlen(MQTT_msg_in) = %d\n", strlen(MQTT_msg_in));
         sprintf(debugTEXT, "Message: %28s", MQTT_msg_in);
         DEBUG_LineOut(debugTEXT);
         sprintf(debugTEXT, "Message Size: %d", length);
