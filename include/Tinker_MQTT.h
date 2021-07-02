@@ -12,4 +12,4 @@ void MQTT_SendSTAT(const char *Topic, const char *Message);
 void MQTT_SendCMND(const char *Topic, const char *Message);
 void MQTT_SendNOTI(const char *Topic, const char *Message);
 
-void MQTT_HandleMessages();
+void MQTT_HandleMessages(const char *Topic, const char *Message);
