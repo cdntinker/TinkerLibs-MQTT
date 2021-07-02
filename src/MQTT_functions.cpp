@@ -115,6 +115,11 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             MQTT_SendNOTI(MQTT_command, MQTT_msg_in);
         }
 
+/*********************************************************************
+ * This is where you need to send the incoming message off
+ * to be handled elsewhere.
+ * Probably in your main project code would be best...
+ *********************************************************************/
 #if defined(SiniLink)
         else if ((strcmp(MQTT_command, "/Power") == 0) |
                  (strcmp(MQTT_command, "/LED01") == 0) |
