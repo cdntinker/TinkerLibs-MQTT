@@ -13,7 +13,7 @@ int WiFi_strength();
 
 #if defined(SiniLink)
 // #include "Tinker_SiniLink.h"
-void SiniLink_MQTT(char* Topic, char* Message);
+void SiniLink_MQTT(char *Topic, char *Message);
 extern bool SiniLink_PWR_STATE;
 #endif
 
@@ -69,8 +69,8 @@ void MQTT_callback(char *topic, byte payload[100], int length)
     char debugTEXT[46];
 
     // char MQTT_msg_in[MQTT_BUFFER_SIZE];
-    char MQTT_msg_in[28];                   // Limiting size for DEBUG functions...
-    
+    char MQTT_msg_in[28]; // Limiting size for DEBUG functions...
+
     char *MQTT_command = strrchr(topic, '/');
     char CNasT[MQTT_BUFFER_SIZE];
     strcpy(CNasT, "/");
@@ -108,7 +108,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
         if (strcmp(MQTT_command, CNasT) == 0) // MQTT_ClientName as Topic
         {
             DEBUG_Trouble("Missing topic...");
-        MQTT_SendNOTI("Error", "Missing topic...");
+            MQTT_SendNOTI("Error", "Missing topic...");
         }
 
         else if (strcmp(MQTT_command, "/Test") == 0)
@@ -120,6 +120,9 @@ void MQTT_callback(char *topic, byte payload[100], int length)
  * This is where you need to send the incoming message off
  * to be handled elsewhere.
  * Probably in your main project code would be best...
+ * 
+ * Need a standardised function call. (should be in main project...)
+ * void MQTT_HandleMessages(const char *Topic, const char *Message)
  *********************************************************************/
 #if defined(SiniLink)
         else if ((strcmp(MQTT_command, "/Power") == 0) |
@@ -133,18 +136,22 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             // Then send it along with MQTT_msg_in off to SiniLink...
             SiniLink_MQTT(Command, MQTT_msg_in);
         }
-#endif
 
         else
         {
             DEBUG_Trouble("Dunno Whatcha want...");
-        MQTT_SendNOTI("Error", "Dunno Whatcha want...");
+            MQTT_SendNOTI("Error", "Dunno Whatcha want...");
+        }
+#endif
+        else
+        {
+            MQTT_HandleMessages(MQTT_command, MQTT_msg_in);
         }
     }
     else
     {
         DEBUG_Trouble("But, it's TOO Bloody Big!");
-        MQTT_SendNOTI("Error", "it's TOO Bloody Big!");
+        MQTT_SendNOTI("Error", "Message TOO Big!");
     }
 }
 
@@ -289,6 +296,12 @@ void MQTT_SendNOTI(const char *Topic, const char *Message)
     MQTT_client.publish(MQTT_notiTopic_Device, Message);
 }
 
-void MQTT_HandleMessages()
+void MQTT_HandleMessages(const char *Topic, const char *Message)
 {
+        char debugTEXT[46];
+
+    sprintf(debugTEXT, "  Topic: %s", Topic);
+    DEBUG_Success(debugTXT);
+    sprintf(debugTEXT, "Message: %s", Message);
+    DEBUG_Success(debugTXT);
 }
