@@ -1,3 +1,6 @@
+#ifndef MQTT_BUFFER_SIZE
+#define MQTT_BUFFER_SIZE (100) // This number is arbitrary
+#endif
 
 void MQTT_init();
 
