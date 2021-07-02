@@ -138,11 +138,13 @@ void MQTT_callback(char *topic, byte payload[100], int length)
         else
         {
             DEBUG_Trouble("Dunno Whatcha want...");
+        MQTT_SendNOTI("Error", "Dunno Whatcha want...");
         }
     }
     else
     {
         DEBUG_Trouble("But, it's TOO Bloody Big!");
+        MQTT_SendNOTI("Error", "it's TOO Bloody Big!");
     }
 }
 
