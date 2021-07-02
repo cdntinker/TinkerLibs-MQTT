@@ -108,6 +108,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
         if (strcmp(MQTT_command, CNasT) == 0) // MQTT_ClientName as Topic
         {
             DEBUG_Trouble("Missing topic...");
+        MQTT_SendNOTI("Error", "Missing topic...");
         }
 
         else if (strcmp(MQTT_command, "/Test") == 0)
