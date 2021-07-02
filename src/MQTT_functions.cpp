@@ -296,12 +296,12 @@ void MQTT_SendNOTI(const char *Topic, const char *Message)
     MQTT_client.publish(MQTT_notiTopic_Device, Message);
 }
 
-void MQTT_HandleMessages(const char *Topic, const char *Message)
-{
-        char debugTEXT[46];
+// void MQTT_HandleMessages(const char *Topic, const char *Message)
+// {
+//         char debugTEXT[46];
 
-    sprintf(debugTEXT, "  Topic: %s", Topic);
-    DEBUG_Success(debugTEXT);
-    sprintf(debugTEXT, "Message: %s", Message);
-    DEBUG_Success(debugTEXT);
-}
+//     sprintf(debugTEXT, "  Topic: %s", Topic);
+//     DEBUG_Success(debugTEXT);
+//     sprintf(debugTEXT, "Message: %s", Message);
+//     DEBUG_Success(debugTEXT);
+// }
