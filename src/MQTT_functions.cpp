@@ -111,7 +111,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             MQTT_SendNOTI("Error", "Missing topic...");
         }
 
-/*********************************************************************
+        /*********************************************************************
  * This is where you need to send the incoming message off
  * to be handled elsewhere.
  * Probably in your main project code would be best...
@@ -279,16 +279,19 @@ void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE]
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Power!!!");
+        DEBUG_LineOut("Power!!!");
     }
     else if (strcmp(Topic, "/Test1") == 0)
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Test1!!!");
+        DEBUG_LineOut("Power!!!");
     }
-    else if (strcmp(Topic, "/Test2") == 0)
+    else if (strcmp(Topic, "/Test1") == 0)
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Test2!!!");
+        DEBUG_LineOut("Test2!!!");
     }
 
     else
