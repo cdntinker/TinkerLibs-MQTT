@@ -111,11 +111,6 @@ void MQTT_callback(char *topic, byte payload[100], int length)
             MQTT_SendNOTI("Error", "Missing topic...");
         }
 
-        else if (strcmp(MQTT_command, "/Test") == 0)
-        {
-            MQTT_SendNOTI(MQTT_command, MQTT_msg_in);
-        }
-
 /*********************************************************************
  * This is where you need to send the incoming message off
  * to be handled elsewhere.
@@ -124,25 +119,6 @@ void MQTT_callback(char *topic, byte payload[100], int length)
  * Need a standardised function call. (should be in main project...)
  * void MQTT_HandleMessages(const char *Topic, const char *Message)
  *********************************************************************/
-// #if defined(SiniLink)
-//         else if ((strcmp(MQTT_command, "/Power") == 0) |
-//                  (strcmp(MQTT_command, "/LED01") == 0) |
-//                  (strcmp(MQTT_command, "/LED02") == 0))
-//         {
-//             // Rip the leading slash off MQTT_command like a bandaid
-//             char Command[MQTT_BUFFER_SIZE];
-//             strcpy(Command, MQTT_command);
-//             memmove(Command, MQTT_command + 1, strlen(MQTT_command + 1) + 1);
-//             // Then send it along with MQTT_msg_in off to SiniLink...
-//             SiniLink_MQTT(Command, MQTT_msg_in);
-//         }
-
-//         else
-//         {
-//             DEBUG_Trouble("Dunno Whatcha want...");
-//             MQTT_SendNOTI("Error", "Dunno Whatcha want...");
-//         }
-// #endif
         else
         {
             MQTT_HandleMessages(MQTT_command, MQTT_msg_in);
