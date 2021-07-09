@@ -306,3 +306,4 @@ void MQTT_HandleMessages(const char *Topic, const char *Message)
     sprintf(debugTEXT, "Message: %s", Message);
     DEBUG_Success(debugTEXT);
 }
+#endif
