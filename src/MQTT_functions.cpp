@@ -279,19 +279,19 @@ void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE]
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Power!!!");
-        DEBUG_LineOut("Power!!!");
+        DEBUG_LineOut("Call the \"Power\" handler...");
     }
     else if (strcmp(Topic, "/Test1") == 0)
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Test1!!!");
-        DEBUG_LineOut("Power!!!");
+        DEBUG_LineOut("Call the \"Test1\" handler...");
     }
-    else if (strcmp(Topic, "/Test1") == 0)
+    else if (strcmp(Topic, "/Test2") == 0)
     {
         // MQTT_SendTELE(Topic, Topic);
         MQTT_SendNOTI("triggered", "Test2!!!");
-        DEBUG_LineOut("Test2!!!");
+        DEBUG_LineOut("Call the \"Test2\" handler...");
     }
 
     else
