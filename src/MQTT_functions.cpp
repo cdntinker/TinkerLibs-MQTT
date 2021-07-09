@@ -297,13 +297,28 @@ void MQTT_SendNOTI(const char *Topic, const char *Message)
 }
 
 #if defined(TestCode)
-void MQTT_HandleMessages(const char *Topic, const char *Message)
+void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE])
 {
-        char debugTEXT[46];
+    if (strcmp(Topic, "/Power") == 0)
+    {
+        // MQTT_SendTELE(Topic, Topic);
+        MQTT_SendNOTI("triggered", "Power!!!");
+    }
+    else if (strcmp(Topic, "/Test1") == 0)
+    {
+        // MQTT_SendTELE(Topic, Topic);
+        MQTT_SendNOTI("triggered", "Test1!!!");
+    }
+    else if (strcmp(Topic, "/Test2") == 0)
+    {
+        // MQTT_SendTELE(Topic, Topic);
+        MQTT_SendNOTI("triggered", "Test2!!!");
+    }
 
-    sprintf(debugTEXT, "  Topic: %s", Topic);
-    DEBUG_Success(debugTEXT);
-    sprintf(debugTEXT, "Message: %s", Message);
-    DEBUG_Success(debugTEXT);
+    else
+    {
+        DEBUG_Trouble("Dunno Whatcha want...");
+        MQTT_SendNOTI("Error", "Dunno Whatcha want...");
+    }
 }
 #endif
