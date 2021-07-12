@@ -273,32 +273,32 @@ void MQTT_SendNOTI(const char *Topic, const char *Message)
     MQTT_client.publish(MQTT_notiTopic_Device, Message);
 }
 
-#ifndef TestCode
-void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE])
-{
-    if (strcmp(Topic, "/Power") == 0)
-    {
-        // MQTT_SendTELE(Topic, Topic);
-        MQTT_SendNOTI("triggered", "Power!!!");
-        DEBUG_LineOut("Call the \"Power\" handler...");
-    }
-    else if (strcmp(Topic, "/Test1") == 0)
-    {
-        // MQTT_SendTELE(Topic, Topic);
-        MQTT_SendNOTI("triggered", "Test1!!!");
-        DEBUG_LineOut("Call the \"Test1\" handler...");
-    }
-    else if (strcmp(Topic, "/Test2") == 0)
-    {
-        // MQTT_SendTELE(Topic, Topic);
-        MQTT_SendNOTI("triggered", "Test2!!!");
-        DEBUG_LineOut("Call the \"Test2\" handler...");
-    }
+// #ifndef TestCode
+// void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE])
+// {
+//     if (strcmp(Topic, "/Power") == 0)
+//     {
+//         // MQTT_SendTELE(Topic, Topic);
+//         MQTT_SendNOTI("triggered", "Power!!!");
+//         DEBUG_LineOut("Call the \"Power\" handler...");
+//     }
+//     else if (strcmp(Topic, "/Test1") == 0)
+//     {
+//         // MQTT_SendTELE(Topic, Topic);
+//         MQTT_SendNOTI("triggered", "Test1!!!");
+//         DEBUG_LineOut("Call the \"Test1\" handler...");
+//     }
+//     else if (strcmp(Topic, "/Test2") == 0)
+//     {
+//         // MQTT_SendTELE(Topic, Topic);
+//         MQTT_SendNOTI("triggered", "Test2!!!");
+//         DEBUG_LineOut("Call the \"Test2\" handler...");
+//     }
 
-    else
-    {
-        DEBUG_Trouble("Dunno Whatcha want...");
-        MQTT_SendNOTI("Error", "Dunno Whatcha want...");
-    }
-}
-#endif
+//     else
+//     {
+//         DEBUG_Trouble("Dunno Whatcha want...");
+//         MQTT_SendNOTI("Error", "Dunno Whatcha want...");
+//     }
+// }
+// #endif
