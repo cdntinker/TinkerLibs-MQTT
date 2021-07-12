@@ -121,6 +121,7 @@ void MQTT_callback(char *topic, byte payload[100], int length)
  *********************************************************************/
         else
         {
+            DEBUG_LineOut("MQTT Handoff...");
             MQTT_HandleMessages(MQTT_command, MQTT_msg_in);
         }
     }
