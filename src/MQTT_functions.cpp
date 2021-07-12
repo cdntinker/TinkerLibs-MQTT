@@ -273,7 +273,7 @@ void MQTT_SendNOTI(const char *Topic, const char *Message)
     MQTT_client.publish(MQTT_notiTopic_Device, Message);
 }
 
-#if defined(TestCode)
+#ifndef TestCode
 void MQTT_HandleMessages(const char *Topic, const char Message[MQTT_BUFFER_SIZE])
 {
     if (strcmp(Topic, "/Power") == 0)
